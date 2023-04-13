@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  rancher:
+    image: rancher/rancher:v2.6-head
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - type: bind
+        source: /root/rancher
+        target: /var/lib/rancher
+
+
